@@ -1,4 +1,4 @@
 #Welome to mdatla's homepage
-[Link](mdatla.github.io)
+[Link](https://mdatla.github.io)
 
 (currently just testing out github pages)
