@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post Title - Your Name</title>
+    <title>Blog Post Title - <span data-site-name></span></title>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/config.js"></script>
 </head>
 <body class="blog-post-page">
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">Your Name</h1>
+            <h1 class="logo">
+                <img data-logo alt="Site Logo" class="logo-img">
+                <span data-site-name></span>
+            </h1>
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../resume.html">Resume</a></li>
-                <li><a href="../blog.html" class="active">Blog</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
+                <!-- Navigation links will be populated by config.js -->
             </ul>
         </div>
     </nav>
@@ -73,8 +74,9 @@ function example() {
             <div class="post-footer">
                 <div class="share">
                     <span>Share this post:</span>
-                    <a href="#" target="_blank">Twitter</a>
-                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" data-share="github" target="_blank">GitHub</a>
+                    <a href="#" data-share="linkedin" target="_blank">LinkedIn</a>
+                    <a href="#" data-share="bluesky" target="_blank">Bluesky</a>
                 </div>
                 
                 <div class="post-navigation">
@@ -86,7 +88,7 @@ function example() {
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            <p data-copyright></p>
         </div>
     </footer>
 </body>

@@ -18,6 +18,13 @@ const config = {
         bluesky: "https://bsky.app/profile/the-maanstr.bsky.social"
     },
     
+    // Share URLs (for blog posts)
+    shareUrls: {
+        github: (url, title) => `https://github.com/mdatla/mdatla.github.io/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
+        linkedin: (url, title) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+        bluesky: (url, title) => `https://bsky.app/intent/compose?text=${encodeURIComponent(title + ' ' + url)}`
+    },
+    
     // Navigation Links
     navLinks: [
         { text: "Home", href: "index.html" },
@@ -81,6 +88,17 @@ function updateCommonElements() {
         const platform = link.getAttribute('data-social');
         if (config.social[platform]) {
             link.href = config.social[platform];
+        }
+    });
+
+    // Update share buttons
+    const shareLinks = document.querySelectorAll('[data-share]');
+    shareLinks.forEach(link => {
+        const platform = link.getAttribute('data-share');
+        if (config.shareUrls[platform]) {
+            const currentUrl = window.location.href;
+            const title = document.title;
+            link.href = config.shareUrls[platform](currentUrl, title);
         }
     });
 }
