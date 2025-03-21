@@ -2,14 +2,20 @@
 const config = {
     // Site Information
     siteName: "Maanas Varma Datla",
-    siteDescription: "Software Developer & Tech Enthusiast",
-    siteEmail: "your.email@example.com",
+    siteDescription: "Software Engineer, Data Engineer and a whole lot of other things",
+    siteEmail: "d.maanas@gmail.com",
+    
+    // Site Assets
+    assets: {
+        logo: "images/logo.jpg",
+        profile: "images/profile.jpg"
+    },
     
     // Social Links
     social: {
-        github: "https://github.com/yourusername",
-        linkedin: "https://linkedin.com/in/yourprofile",
-        twitter: "https://twitter.com/yourhandle"
+        github: "https://github.com/mdatla",
+        linkedin: "https://www.linkedin.com/in/mdatla",
+        bluesky: "https://bsky.app/profile/the-maanstr.bsky.social"
     },
     
     // Navigation Links
@@ -33,6 +39,19 @@ function updateCommonElements() {
     const siteNameElements = document.querySelectorAll('[data-site-name]');
     siteNameElements.forEach(element => {
         element.textContent = config.siteName;
+    });
+
+    // Update site description
+    const siteDescriptionElements = document.querySelectorAll('[data-site-description]');
+    siteDescriptionElements.forEach(element => {
+        element.textContent = config.siteDescription;
+    });
+
+    // Update logo image
+    const logoImages = document.querySelectorAll('[data-logo]');
+    logoImages.forEach(img => {
+        img.src = config.assets.logo;
+        img.alt = config.siteName;
     });
 
     // Update navigation links
